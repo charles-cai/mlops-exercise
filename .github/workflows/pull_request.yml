@@ -15,6 +15,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Prepare required folders
+      run: |
+        mkdir -p data  
+        mkdir -p models          
+    - name: Prepare data
+      run: |
+        python util/generate.py
     - name: Test with pytest
       run: |
         pip install pytest pytest-cov
